@@ -1,14 +1,23 @@
 // src/views/UserList.js
 var m = require("mithril")
+// const { User } = require("../models/User")
+var { inject } = require('aurelia-dependency-injection')
+const { DependencyTest } = require('../dependecy-test')
+
+//@inject(DependencyTest)
+
+// var m = require("mithril")
 var User = require("../models/User")
 
+//@inject(DependencyTest)
 class UserListComponent{
-  constructor(vnode) {
-        // vnode.state is undefined at this point
-        this.kind = "ES6 class"
+  static inject() { return [DependencyTest]; }
+  constructor(dependencyTest) {
+        //this.User = user
+        console.log(dependencyTest)
   }
   oninit(){
-     User.loadList()
+     this.User.loadList()
   }
   view(){
     return m(".user-list", User.list.map(function(user) {

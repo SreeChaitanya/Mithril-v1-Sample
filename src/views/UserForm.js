@@ -1,10 +1,10 @@
 // src/views/UserForm.js
 var m = require("mithril")
 var User = require("../models/User")
-class UserFormComponent{
+export class UserFormComponent{
   oninit(vnode){
       User.load(vnode.attrs.id)
-  }
+  }  
   view(){
     return m("form", {
             onsubmit: function(e) {
@@ -26,4 +26,3 @@ class UserFormComponent{
     ])
   }
 }
-module.exports = UserFormComponent

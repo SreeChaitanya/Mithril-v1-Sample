@@ -1,8 +1,9 @@
 {
-  "presets": ["es2015"],
-  "plugins": [
+  "presets": ["es2016"],
+  "plugins": ["transform-decorators-legacy",
       ["transform-react-jsx", {
           "pragma": "m"
       }]
   ]
+
 }
